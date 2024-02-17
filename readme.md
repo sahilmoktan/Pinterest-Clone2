@@ -17,3 +17,6 @@ http://localhost:3000/register ma Create new account page for register
 installing npm i mongoose passport passport-local passport-local-mongoose express-session
 
 for now mongoose Schema work in user.js 
+
+made register post function in index to register user
+also route of profile so profile user is showen after login

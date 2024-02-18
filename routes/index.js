@@ -2,11 +2,14 @@ var express = require("express");
 var router = express.Router();
 const userModel = require("./users");
 const passport = require("passport");
+const localStrategy = require("passport-local");
+
+passport.use(new localStrategy(userModel.authenticate()));
 
 /* GET profile page. */
-// router.get("/profile", function (req, res, next) {
-//   res.render("profile");
-// });
+router.get("/profile", function (req, res, next) {
+  res.render("profile");
+});
 
 /* GET login page. */
 router.get("/", function (req, res, next) {
@@ -41,7 +44,7 @@ router.post(
   function (req, res, next) {}
 );
 
-router.get("/logout", function (req, res) {
+router.get("/logout", function (req, res, next) {
   req.logout(function (err) {
     if (err) {
       return next(err);
@@ -49,5 +52,12 @@ router.get("/logout", function (req, res) {
     res.redirect("/");
   });
 });
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/");
+}
 
 module.exports = router;

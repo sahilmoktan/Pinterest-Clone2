@@ -23,9 +23,9 @@ app.use(
   })
 );
 
-app.use(passport.initialize());
-app.use(passport.session());
-passport.serializeUser(usersRouter.serializeUser());
+app.use(passport.initialize()); //saying passport getStart for  perforiming auth works
+app.use(passport.session()); //passport save it's session
+passport.serializeUser(usersRouter.serializeUser()); //hasing work ko lagi serializer,
 passport.deserializeUser(usersRouter.deserializeUser());
 
 app.use(logger("dev"));

@@ -20,3 +20,5 @@ for now mongoose Schema work in user.js
 
 made register post function in index to register user
 also route of profile so profile user is showen after login
+
+profile basic ui setup/ going to set multer for photo upload

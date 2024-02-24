@@ -22,3 +22,5 @@ made register post function in index to register user
 also route of profile so profile user is showen after login
 
 profile basic ui setup/ going to set multer for photo upload
+
+here, every time if i send user for reg, and page couln't be redirected to /profile. am still failed
